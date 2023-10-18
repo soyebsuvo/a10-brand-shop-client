@@ -1,0 +1,32 @@
+[
+    {
+        "id" : 1,
+        "brand_name" : "Toyota",
+        "image" : "https://i.ibb.co/TKLG5YR/th-7.jpg"
+    },
+    {
+        "id" : 2,
+        "brand_name" : "Ford",
+        "image" : "https://i.ibb.co/C2FKFbZ/th-8.jpg"
+    },
+    {
+        "id" : 3,
+        "brand_name" : "BMW",
+        "image" : "https://i.ibb.co/ZBTLL3d/th-14.jpg"
+    },
+    {
+        "id" : 4,
+        "brand_name" : "Mercedes-Benz",
+        "image" : "https://i.ibb.co/FBBNkk8/th-13.jpg"
+    },
+    {
+        "id" : 5,
+        "brand_name" : "Tesla",
+        "image" : "https://i.ibb.co/J5yT4sz/th-11.jpgs"
+    },
+    {
+        "id" : 6,
+        "brand_name" : "Honda",
+        "image" : "https://i.ibb.co/VSfQxpV/th-12.jpg"
+    }
+]
