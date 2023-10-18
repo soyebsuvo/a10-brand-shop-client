@@ -2,8 +2,26 @@
 import { FcGoogle } from 'react-icons/fc';
 import { BsGithub } from 'react-icons/bs';
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 
 export default function Registration() {
+    const { createUser } = useContext(AuthContext);
+    const handleRegister = e => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const photo = e.target.photo.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(name , photo , email , password )
+        createUser(email , password)
+        .then(result => {
+            console.log(result.user);
+        })
+        .catch(error => {
+            console.error(error);
+        })
+    }
     return (
         <div className="py-5 bg-[#EEE]">
             <div className="py-6">
@@ -20,7 +38,7 @@ export default function Registration() {
                     </div>
                     <div className="divider w-8/12 mx-auto">OR</div>
                     <div className="grid card rounded-box place-items-center">
-                        <form className='w-full px-6 md:px-12'>
+                        <form onSubmit={handleRegister} className='w-full px-6 md:px-12'>
                             <input className='block w-full py-4 border rounded-lg px-2 my-2' type="name" name="name" id="name" placeholder='Your Name*' />
                             <input className='block w-full py-4 border rounded-lg px-2 my-2' type="Photo URL" name="photo" id="photo" placeholder='Your Photo URL*' />
                             <input className='block w-full py-4 border rounded-lg px-2 my-2' type="email" name="email" id="email" placeholder='Your Email*' />
@@ -32,7 +50,7 @@ export default function Registration() {
                                 <p className='text-blue-600 underline font-bold'>Forgotten Password</p>
                             </div>
                             <div>
-                                <button className='btn btn-block bg-[#EF1D26] text-white hover:bg-transparent hover:border hover:border-red-700 hover:text-[#EF1D26]'>Register</button>
+                                <button type='submit' className='btn btn-block bg-[#EF1D26] text-white hover:bg-transparent hover:border hover:border-red-700 hover:text-[#EF1D26]'>Register</button>
                             </div>
                         </form>
 

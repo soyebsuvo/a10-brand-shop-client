@@ -2,8 +2,23 @@
 import { FcGoogle } from 'react-icons/fc';
 import { BsGithub } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 
 export default function Login() {
+    const { login } = useContext(AuthContext);
+    const handleLogin = e => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        login(email , password)
+        .then(result => {
+            console.log(result.user)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    }
     return (
         <div className="py-5 bg-[#EEE]">
             <div className="py-6">
@@ -20,7 +35,7 @@ export default function Login() {
                     </div>
                     <div className="divider w-8/12 mx-auto">OR</div>
                     <div className="grid card rounded-box place-items-center">
-                        <form className='w-full px-6 md:px-12'>
+                        <form onSubmit={handleLogin} className='w-full px-6 md:px-12'>
                             <input className='block w-full py-4 border rounded-lg px-2 my-2' type="email" name="email" id="email" placeholder='Your Email*' />
                             <input className='block w-full py-4 border rounded-lg px-2 my-2' type="password" name="password" id="password" placeholder='Your Password*' />
                             <div className='flex justify-between py-5'>
