@@ -1,38 +1,38 @@
 /* eslint-disable react/no-unescaped-entities */
 import { FcGoogle } from 'react-icons/fc';
 import { BsGithub } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
-
 export default function Login() {
-    const { login ,googleLogin , githubLogin} = useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation();
+    // console.log(location)
+    const { login, googleLogin, githubLogin } = useContext(AuthContext);
     const handleLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         login(email, password)
-            .then(result => {
-                console.log(result.user)
-                toast.success("Successfully logged in")
+            .then(() => {
+                toast.success("Successfully logged in");
+                navigate(location.state ? location.state : "/");
             })
-            .catch(error => {
-                console.error(error)
-                toast.error("Email and Password doesn't match")
+            .catch(() => {
+                toast.error("Email and Password doesn't match");
             })
     }
 
     const othersLogin = media => {
         media()
-        .then(res => {
-            console.log(res.user)
-            toast.success("Successfully logged in")
-        })
-        .catch(err => {
-            console.log(err)
-            toast.error("Email and Password doesn't match")
-        })
+            .then(() => {
+                toast.success("Successfully logged in");
+                navigate(location.state ? location.state : "/");
+            })
+            .catch(() => {
+                toast.error("Email and Password doesn't match");
+            })
     }
     return (
         <div className="py-5 bg-[#EEE]">

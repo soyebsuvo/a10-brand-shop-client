@@ -25,23 +25,19 @@ export default function Registration() {
             return;
         }
         createUser(email , password)
-        .then(result => {
-            console.log(result.user);
+        .then(() => {
             toast.success("Successfully Logged in")
         })
-        .catch(error => {
-            console.error(error);
+        .catch(() => {
             toast.error("something went wrong")
         })
     }
     const othersLogin = media => {
         media()
-        .then(result => {
-            console.log(result.user)
+        .then(() => {
             toast.success("Successfully Logged in")
         })
-        .catch(err => {
-            console.error(err)
+        .catch(() => {
             toast.error("something went wrong")
         })
     }
