@@ -1,11 +1,25 @@
 import { NavLink } from "react-router-dom"
 import "./navbar.css"
+import { useContext } from "react"
+import { AuthContext } from "../AuthProvider/AuthProvider"
 export default function Navbar() {
+    const { user , logOut} = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOut()
+        .then(res => {
+            console.log(res.user)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/addProduct">Add Product</NavLink></li>
         <li><NavLink to="/carts">My Cart</NavLink></li>
-        <li><NavLink to="/login">Login</NavLink></li>
+        {
+            user ? <li><NavLink onClick={handleLogOut} to="/login">Log Out</NavLink></li> : <li><NavLink to="/login">Login</NavLink></li>
+        }
     </>
     return (
         <nav className="shadow-lg py-2 bg-white">
@@ -16,7 +30,7 @@ export default function Navbar() {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="font-bold menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                           {links}
+                            {links}
                         </ul>
                     </div>
                     <a className="flex items-center normal-case text-xl">
