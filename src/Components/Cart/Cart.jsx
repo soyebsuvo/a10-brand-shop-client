@@ -22,7 +22,7 @@ export default function Cart({ cart }) {
                     <p>Price : {price}</p>
                     <div className='flex gap-4'>
                         {/* <Link to={`/carts/${_id}}`}><button className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">Details</button></Link> */}
-                        <Link to={`/carts/${_id}}`}><button className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">Details</button></Link>
+                        <Link to={`/mycarts/${_id}}`}><button className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">Details</button></Link>
                     </div>
                 </div>
             </div>

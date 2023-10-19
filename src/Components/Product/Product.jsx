@@ -21,7 +21,7 @@ export default function Product({ product }) {
                 <div className="px-2 flex justify-between items-center">
                     <p>Price : {price}</p>
                     <div className='flex gap-4'>
-                    <Link><button className="btn bg-[#EF1D26] text-white hover:bg-transparent hover:border hover:border-red-700 hover:text-[#EF1D26]">Update</button></Link>
+                    <Link to={`/update/${_id}`}><button className="btn bg-[#EF1D26] text-white hover:bg-transparent hover:border hover:border-red-700 hover:text-[#EF1D26]">Update</button></Link>
                     <Link to={`/product/${_id}`}><button className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">Details</button></Link>
                     </div>
                 </div>
