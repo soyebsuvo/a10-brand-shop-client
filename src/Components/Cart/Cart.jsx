@@ -1,8 +1,26 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
-export default function Cart({ cart }) {
+export default function Cart({ cart , UpdatedCart}) {
     const { _id, name, photo, brand, type, rating, price, desc } = cart;
+    const handleDeleteProduct = () => {
+        fetch(`http://localhost:5000/carts/${_id}` , {
+            method : "DELETE"
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.acknowledged){
+                Swal.fire(
+                    'Good job!',
+                    'Product Updated Successfully',
+                    'success'
+                  )
+                  UpdatedCart(_id)
+            }
+        })
+    }
     return (
         <div className="card card-compact">
             <figure><img className='w-96 h-52' src={photo} alt="Shoes" /></figure>
@@ -22,6 +40,7 @@ export default function Cart({ cart }) {
                     <p>Price : {price}</p>
                     <div className='flex gap-4'>
                         {/* <Link to={`/carts/${_id}}`}><button className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">Details</button></Link> */}
+                        <button onClick={handleDeleteProduct} className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">Details</button>
                         <Link to={`/mycarts/${_id}}`}><button className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">Details</button></Link>
                     </div>
                 </div>
@@ -30,5 +49,6 @@ export default function Cart({ cart }) {
     )
 }
 Cart.propTypes = {
-    cart: PropTypes.object
+    cart: PropTypes.object,
+    UpdatedCart:PropTypes.func
 }

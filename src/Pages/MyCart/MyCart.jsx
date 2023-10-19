@@ -10,6 +10,10 @@ export default function MyCart() {
         .then(res => res.json())
         .then(data => setCarts(data))
     },[])
+    const UpdatedCart = id => {
+        const filtered = carts.filter(cart => cart._id == id);
+        setCarts(filtered);
+    }
     console.log(carts)
   return (
     <div className="py-8 px-16">
@@ -19,7 +23,7 @@ export default function MyCart() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
                 {
-                    carts?.map(cart => <Cart key={cart._id} cart={cart}></Cart>)
+                    carts?.map(cart => <Cart key={cart._id} cart={cart} UpdatedCart={UpdatedCart}></Cart>)
                 }
             </div>
         </div>

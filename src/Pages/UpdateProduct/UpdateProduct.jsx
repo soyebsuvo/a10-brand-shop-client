@@ -1,7 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function UpdateProduct() {
+    const navigate = useNavigate();
     const product = useLoaderData();
     const handleUpdateProduct = (e) => {
         e.preventDefault();
@@ -33,7 +34,7 @@ export default function UpdateProduct() {
                     'Product Updated Successfully',
                     'success'
                   )
-                  e.target.reset()
+                    navigate("/")
             }
         })
     }
