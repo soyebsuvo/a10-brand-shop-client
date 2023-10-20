@@ -8,7 +8,7 @@ export default function ProductDetails() {
     const cartProduct = { name, photo, brand, rating, type, desc, price };
     const handleAddToCart = product => {
         // console.log(product)
-        fetch(`http://localhost:5000/carts` , {
+        fetch(`https://brand-shop-assignment-server-6jrcknra3-soyeb-suvos-projects.vercel.app/carts` , {
             method : "POST",
             headers : {
                 'content-type' : 'application/json'

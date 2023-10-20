@@ -37,27 +37,27 @@ const router = createBrowserRouter([
             {
                 path : "/products/:name",
                 element : <Products></Products>,
-                loader : ({params}) => fetch(`http://localhost:5000/products/${params.name}`)
+                loader : ({params}) => fetch(`https://brand-shop-assignment-server-6jrcknra3-soyeb-suvos-projects.vercel.app/products/${params.name}`)
             },
             {
                 path : "/product/:id",
                 element : <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-                loader : ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+                loader : ({params}) => fetch(`https://brand-shop-assignment-server-6jrcknra3-soyeb-suvos-projects.vercel.app/details/${params.id}`)
             },
             {
                 path : "/carts",
                 element : <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-                // loader : () => fetch(`http://localhost:5000/carts`)
+                // loader : () => fetch(`https://brand-shop-assignment-server-6jrcknra3-soyeb-suvos-projects.vercel.app/carts`)
             },
             {
                 path : "/mycarts/:cartId",
                 element : <CartDetails></CartDetails>,
-                loader : ({params}) => fetch(`http://localhost:5000/cartsDetails/${params.cartId}`)
+                loader : ({params}) => fetch(`https://brand-shop-assignment-server-6jrcknra3-soyeb-suvos-projects.vercel.app/cartsDetails/${params.cartId}`)
             },
             {
                 path : "/update/:id",
                 element : <UpdateProduct></UpdateProduct>,
-                loader : ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+                loader : ({params}) => fetch(`https://brand-shop-assignment-server-6jrcknra3-soyeb-suvos-projects.vercel.app/details/${params.id}`)
             }
         ]
     }

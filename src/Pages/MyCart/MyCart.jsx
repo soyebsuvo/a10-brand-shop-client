@@ -6,7 +6,7 @@ export default function MyCart() {
     // const carts = useLoaderData();
     const [carts, setCarts] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/carts")
+        fetch("https://brand-shop-assignment-server-6jrcknra3-soyeb-suvos-projects.vercel.app/carts")
             .then(res => res.json())
             .then(data => setCarts(data))
     }, [])

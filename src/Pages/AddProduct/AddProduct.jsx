@@ -15,7 +15,7 @@ export default function AddProduct() {
         }
         console.log(product)
 
-        fetch("http://localhost:5000/products" , {
+        fetch("https://brand-shop-assignment-server-6jrcknra3-soyeb-suvos-projects.vercel.app/products" , {
             method : "POST",
             headers : {
                 'content-type' : 'application/json'

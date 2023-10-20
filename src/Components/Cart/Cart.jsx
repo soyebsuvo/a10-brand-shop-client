@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 export default function Cart({ cart , UpdatedCart}) {
     const { _id, name, photo, brand, type, rating, price, desc } = cart;
     const handleDeleteProduct = () => {
-        fetch(`http://localhost:5000/carts/${_id}` , {
+        fetch(`https://brand-shop-assignment-server-6jrcknra3-soyeb-suvos-projects.vercel.app/carts/${_id}` , {
             method : "DELETE"
         })
         .then(res => res.json())

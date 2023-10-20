@@ -17,7 +17,7 @@ export default function UpdateProduct() {
             name , photo , brand , type , rating , price , desc 
         }
 
-        fetch(`http://localhost:5000/products/${product._id}` , {
+        fetch(`https://brand-shop-assignment-server-6jrcknra3-soyeb-suvos-projects.vercel.app/products/${product._id}` , {
             method : "PUT",
             headers : {
                 'content-type' : 'application/json'
