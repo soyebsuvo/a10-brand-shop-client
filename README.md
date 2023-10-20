@@ -1,8 +1,10 @@
-# React + Vite
+# Brand Shop (Automotive)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## live Link : [brand Shop(Automotive)]()
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### project features
+- One can easily buy a car through this website.
+- Everyone can buy a car according to their preferred brand
+- Clients can add their favorite products to the cart. This will allow them to come back and see the product added to their cart
+- On this website one can add new products if desired. And you can update any product if you want
+- They can easily contact us through the contact form. By doing this they can buy the car knowingly
