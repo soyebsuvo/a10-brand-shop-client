@@ -24,7 +24,6 @@ export default function AddProduct() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             if(data.acknowledged){
                 Swal.fire(
                     'Good job!',

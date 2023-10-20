@@ -10,11 +10,11 @@ export default function Registration() {
     const { createUser , googleLogin , githubLogin} = useContext(AuthContext);
     const handleRegister = e => {
         e.preventDefault();
-        const name = e.target.name.value;
-        const photo = e.target.photo.value;
+        // const name = e.target.name.value;
+        // const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(name , photo , email , password )
+        // console.log(name , photo , email , password )
         if(password.length < 6){
             toast.error("Password Must be at least 6 characters")
             return;

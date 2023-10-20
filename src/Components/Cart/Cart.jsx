@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 // import { } from 'react-icons/md';
 
@@ -11,11 +10,10 @@ export default function Cart({ cart , UpdatedCart}) {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             if(data.acknowledged){
                 Swal.fire(
-                    'Good job!',
-                    'Product Updated Successfully',
+                    'Done!',
+                    'Product Deleted Successfully',
                     'success'
                   )
                   UpdatedCart(_id)
@@ -41,7 +39,6 @@ export default function Cart({ cart , UpdatedCart}) {
                     <p>Price : {price}</p>
                     <div className='flex gap-4'>
                         <button onClick={handleDeleteProduct} className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">delete</button>
-                        <Link to={`/mycarts/${_id}}`}><button className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">Details</button></Link>
                     </div>
                 </div>
             </div>

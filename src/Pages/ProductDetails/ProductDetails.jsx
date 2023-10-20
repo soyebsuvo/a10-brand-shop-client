@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 export default function ProductDetails() {
     const product = useLoaderData();
-    console.log(product)
+    // console.log(product)
     const { name, photo, brand, rating, type, desc, price } = product;
     const cartProduct = { name, photo, brand, rating, type, desc, price };
     const handleAddToCart = product => {

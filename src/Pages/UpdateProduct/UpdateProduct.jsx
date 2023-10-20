@@ -16,7 +16,6 @@ export default function UpdateProduct() {
         const updatedProduct = {
             name , photo , brand , type , rating , price , desc 
         }
-        console.log(product)
 
         fetch(`http://localhost:5000/products/${product._id}` , {
             method : "PUT",
@@ -27,7 +26,6 @@ export default function UpdateProduct() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             if(data.acknowledged){
                 Swal.fire(
                     'Good job!',
