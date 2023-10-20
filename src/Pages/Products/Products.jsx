@@ -11,9 +11,12 @@ export default function Products() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
                 {
-                    products?.map(product => <Product key={product._id} product={product}></Product>)
+                    products.length > 0 && products?.map(product => <Product key={product._id} product={product}></Product>)
                 }
             </div>
+            {
+                products.length === 0 && <div className="h-[60vh] flex justify-center items-center w-full"><h2 className="text-4xl font-bold flex justify-center text-center">No Product Available Here </h2></div>
+            }
         </div>
     )
 }

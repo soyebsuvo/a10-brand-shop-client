@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+// import { } from 'react-icons/md';
 
 export default function Cart({ cart , UpdatedCart}) {
     const { _id, name, photo, brand, type, rating, price, desc } = cart;
@@ -33,14 +34,13 @@ export default function Cart({ cart , UpdatedCart}) {
                 </div>
                 <div className='py-2 text-gray-600'>
                     {
-                        desc.length > 80 ? <p className='px-2'>{desc.slice(0, 80)}</p> : <p className='px-2'>desc</p>
+                        desc.length > 80 ? <p className='px-2'>{desc.slice(0, 80)}</p> : <p className='px-2'>{desc}</p>
                     }
                 </div>
                 <div className="px-2 flex justify-between items-center">
                     <p>Price : {price}</p>
                     <div className='flex gap-4'>
-                        {/* <Link to={`/carts/${_id}}`}><button className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">Details</button></Link> */}
-                        <button onClick={handleDeleteProduct} className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">Details</button>
+                        <button onClick={handleDeleteProduct} className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">delete</button>
                         <Link to={`/mycarts/${_id}}`}><button className="btn text-[#EF1D26] border border-[#EF1D26] hover:bg-transparent hover:border hover:border-[#EF1D26]">Details</button></Link>
                     </div>
                 </div>

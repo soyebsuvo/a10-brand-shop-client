@@ -47,11 +47,11 @@ export default function UpdateProduct() {
             <div>
                 <div className="py-8">
                     <form onSubmit={handleUpdateProduct}>
-                        <div className="flex gap-4">
+                        <div className="md:flex gap-4">
                             <input className="w-full py-4 border-2 rounded-lg px-2 my-2" type="text" defaultValue={product.name} name="name" id="name" placeholder="Product Name*" />
                             <input className="w-full py-4 border-2 rounded-lg px-2 my-2" type="text" defaultValue={product.photo} name="photo" id="photo" placeholder="Photo URL*" />
                         </div>
-                        <div className="flex gap-8">
+                        <div className="md:flex gap-8">
                             <div>
                                 <select defaultValue={product.brand} className="w-36 py-4 border-2 rounded-lg px-2 my-2" name="brand" id="brand">
                                     <option value="">Select Brands</option>
