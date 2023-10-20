@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth"
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth"
 import { createContext, useEffect, useState } from "react"
 import auth from "../../Firebase/firebase.config"
 import PropTypes from 'prop-types';
@@ -37,6 +37,13 @@ export default function AuthProvider({children}) {
         return signOut(auth);
     }
 
+    const updateUser = (name , photo) => {
+        return updateProfile(auth.currentUser , {
+            displayName : name , 
+            photoURL : photo
+        })
+    }
+
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth , currentUser => {
             setUser(currentUser);
@@ -47,7 +54,7 @@ export default function AuthProvider({children}) {
         }
     },[])
 
-    const authInfo = {user , loading , createUser , login , googleLogin , githubLogin , logOut}
+    const authInfo = {user , loading , createUser , login , googleLogin , githubLogin , logOut , updateUser}
   return (
     <AuthContext.Provider value={authInfo}>
       {children}

@@ -7,11 +7,11 @@ import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 
 export default function Registration() {
-    const { createUser , googleLogin , githubLogin} = useContext(AuthContext);
+    const { createUser , googleLogin , githubLogin , updateUser} = useContext(AuthContext);
     const handleRegister = e => {
         e.preventDefault();
-        // const name = e.target.name.value;
-        // const photo = e.target.photo.value;
+        const name = e.target.name.value;
+        const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         // console.log(name , photo , email , password )
@@ -27,9 +27,10 @@ export default function Registration() {
         createUser(email , password)
         .then(() => {
             toast.success("Successfully Logged in")
+            updateUser(name , photo)
         })
         .catch(() => {
-            toast.error("something went wrong")
+            toast.error("Maybe this email is used or enter valid email password")
         })
     }
     const othersLogin = media => {

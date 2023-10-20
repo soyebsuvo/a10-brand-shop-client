@@ -19,7 +19,10 @@ export default function Navbar() {
         <li><NavLink to="/addProduct">Add Product</NavLink></li>
         <li><NavLink to="/carts">My Cart</NavLink></li>
         {
-            user ? <li><NavLink onClick={handleLogOut} to="/login">Log Out</NavLink></li> : <li><NavLink to="/login">Login</NavLink></li>
+            user ? <li className="text-lg font-bold log"><span title={user.email} className="font-extrabold">
+                <img className="w-10 rounded-full md:ml-20" src={user.photoURL} alt="" /><span className="font-normal mr-4">{user.displayName}</span><span className="hover:underline" onClick={handleLogOut}>Log Out</span>
+                </span></li> :
+                <li className="text-lg font-bold"><NavLink to="/login">Login</NavLink></li>
         }
     </>
     return (
@@ -39,7 +42,7 @@ export default function Navbar() {
                     </a>
                 </div>
                 <div className="hidden md:flex">
-                    <ul className="menu menu-horizontal px-1 font-bold">
+                    <ul className="menu menu-horizontal items-center px-1 font-bold">
                         {links}
                     </ul>
                 </div>
