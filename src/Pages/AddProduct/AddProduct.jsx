@@ -15,7 +15,7 @@ export default function AddProduct() {
         }
         console.log(product)
 
-        fetch("https://brand-shop-assignment-server-6jrcknra3-soyeb-suvos-projects.vercel.app/products" , {
+        fetch("https://brand-shop-assignment-server-b37868htx-soyeb-suvos-projects.vercel.app/products" , {
             method : "POST",
             headers : {
                 'content-type' : 'application/json'
